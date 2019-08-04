@@ -122,6 +122,7 @@
     )
 
     (; see how the entire data structure is stored ;)
+    (; [['Some Name', 50], 'Example comment text'] ;)
     (call $log
       (get_local $comment)
     )
@@ -130,6 +131,7 @@
        ======================== ;)
 
     (; the comment's content ;)
+    (; "Example comment text" ;)
     (call $log
       (call $get
         (get_local $comment)
@@ -138,6 +140,7 @@
     )
 
     (; the comment's user's name ;)
+    (; "Some name" ;)
     (call $log
       (call $get
         (call $get
