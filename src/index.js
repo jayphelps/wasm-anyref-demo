@@ -21,9 +21,6 @@ const env = {
   alloc_struct3(a, b, c) {
     return [a, b, c];
   },
-  alloc_string(str) {
-    return str;
-  },
   get(obj, index) {
     return Reflect.get(obj, index);
   },
