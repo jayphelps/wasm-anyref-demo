@@ -6,6 +6,7 @@ console.clear();
 const env = {
   memory: new WebAssembly.Memory({ initial: 10 }),
   anyref_table: new WebAssembly.Table({ element: 'anyref', initial: 2 }),
+  get: Reflect.get,
   alloc_struct(...args) {
     return args;
   },
@@ -20,9 +21,6 @@ const env = {
   },
   alloc_struct3(a, b, c) {
     return [a, b, c];
-  },
-  get(obj, index) {
-    return Reflect.get(obj, index);
   },
   log(value) {
     console.log(value);
