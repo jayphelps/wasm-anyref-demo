@@ -128,7 +128,7 @@
     )
 
     (; === peek at individual fields ===
-       ======================== ;)
+       ================================= ;)
 
     (; the comment's content ;)
     (; "Example comment text" ;)
