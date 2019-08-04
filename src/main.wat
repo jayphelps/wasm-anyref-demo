@@ -34,15 +34,15 @@
   (import "env" "anyref_table" (table $anyref_table 2 anyref))
   (;
     struct User(
-      name: string,
-      age: i32
+      name: string, // offset: (i32.const 0)
+      age: i32      // offset: (i32.const 1)
     )
   ;)
   (import "env" "alloc_struct2" (func $User (param anyref) (param i32) (result anyref)))
   (;
     struct Comment(
-      user: User,
-      content: String
+      user: User,      // offset: (i32.const 0)
+      content: String  // offset: (i32.const 1)
     )
   ;)
   (import "env" "alloc_struct2" (func $Comment (param anyref) (param anyref) (result anyref)))
