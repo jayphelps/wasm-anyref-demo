@@ -83,7 +83,7 @@
     (local $comment anyref)
 
     (; === User creation ===
-       ======================== ;)
+       ===================== ;)
 
     (; name is a GC reference string coming from the imported table ;)
     (set_local $name
