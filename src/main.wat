@@ -7,18 +7,24 @@
   concept to help folks who already know some WebAssembly but want that "a ha"
   moment about how anyref by itself is still powerful.
 
-  In practice, I imagine this performs relatively poorly. Even if your Wasm
+  In practice this performs relatively poorly. Even if your Wasm
   runtime has optimized JS <-> Wasm bridge calls, using this technique would
   mean a lot of them. There's been talk about browser engines being able to
   maybe optimize imported Reflect.get() calls so they aren't actually function
   invocations and have little overhead, but AFAIK no movement yet.
+ 
+  Even if those calls were optimized, some rudimentary testing suggests currently
+  anyrefs in general are "slow" compared to equivalent JIT optimized JS.
+  e.g. boxing alone appears slow. This might improve later as anyref is still
+  early and experimental.
 
-  Keep in mind that WebAssembly itself is planned to eventually have the ability
-  to allocate GC-collected data structures without needing to import JS functions
+  Keep in mind that WebAssembly is planned to eventually have the ability to
+  allocate GC-collected data structures without needing to import JS functions
   like we do here (the alloc_struct stuff) which would also improve perf.
 
-  Combined with a few other pending proposals (e.g. host bindings) you eventually
-  won't need to ship a JS runtime. But that's the future!
+  So in summary, this is slow now, but combined with a few other pending proposals
+  (e.g. host bindings) you eventually won't need to ship a JS runtime. But that's
+  a little ways in the future.
 
   ***
 
