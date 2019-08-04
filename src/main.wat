@@ -27,23 +27,49 @@
   they don't have named fields at runtime, but I'm calling them structs to show
   that a hypothetical language could compile the field names away to just offsets,
   just like many languages do.
+
+  You could invision this is the compiled output of a hypothetical language that
+  is garbage collected. Here is some pseudo code:
+
+  struct User {
+    name: string,
+    age: i32
+  }
+
+  struct Comment {
+    user: User,
+    content: String
+  }
+
+  fun main() {
+    let name = 'Some Name'
+    let age = 50
+    let user = User { name, age }
+
+    let content = 'Example comment text'
+    let comment = Comment { user, content }
+
+    log(comment)
+    log(comment.content)
+    log(comment.user.name)
+  }
 ;)
 
 (module
   (import "env" "memory" (memory $memory 1))
   (import "env" "anyref_table" (table $anyref_table 2 anyref))
   (;
-    struct User(
+    struct User {
       name: string, // offset: (i32.const 0)
       age: i32      // offset: (i32.const 1)
-    )
+    }
   ;)
   (import "env" "alloc_struct2" (func $User (param anyref) (param i32) (result anyref)))
   (;
-    struct Comment(
+    struct Comment {
       user: User,      // offset: (i32.const 0)
       content: String  // offset: (i32.const 1)
-    )
+    }
   ;)
   (import "env" "alloc_struct2" (func $Comment (param anyref) (param anyref) (result anyref)))
   (import "env" "get" (func $get (param anyref) (param i32) (result anyref)))
