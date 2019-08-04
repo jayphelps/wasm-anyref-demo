@@ -1,7 +1,8 @@
 (;
-  The goal of this is experiment and demonstrate how you could use JavaScript
+  My goal was to experiment and demonstrate how you could use JavaScript
   arrays as your Garbage Collected "struct" objects instead of shipping your own
-  malloc and GC then dealing with JS <-> marshalling.
+  malloc and GC then dealing with JS <-> marshalling. Publishing in case others
+  are interested in learning more about anyref and are looking for examples.
 
   It's implemented naively in many ways, so keep in mind this is only a proof of
   concept to help folks who already know some WebAssembly but want that "a ha"
@@ -34,8 +35,8 @@
   that a hypothetical language could compile the field names away to just offsets,
   just like many languages do.
 
-  You could invision this is the compiled output of a hypothetical language that
-  is garbage collected. Here is some pseudo code:
+  You could invision this .wat file is the compiled output of some pseudo code
+  from a hypothetical language that is garbage collected, like this:
 
   struct User {
     name: string,
