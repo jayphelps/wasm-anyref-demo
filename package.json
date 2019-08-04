@@ -1,0 +1,15 @@
+{
+  "name": "wasm-anyref-demo",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --ext js,wat --watch src --experimental-modules --experimental-wasm-anyref src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "wabt": "^1.0.11"
+  }
+}
