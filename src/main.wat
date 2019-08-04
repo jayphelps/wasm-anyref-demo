@@ -38,7 +38,7 @@
 
   struct Comment {
     user: User,
-    content: String
+    content: string
   }
 
   fun main() {
@@ -68,7 +68,7 @@
   (;
     struct Comment {
       user: User,      // offset: (i32.const 0)
-      content: String  // offset: (i32.const 1)
+      content: string  // offset: (i32.const 1)
     }
   ;)
   (import "env" "alloc_struct2" (func $Comment (param anyref) (param anyref) (result anyref)))
