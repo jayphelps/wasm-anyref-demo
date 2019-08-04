@@ -100,7 +100,7 @@
       (get_local $comment)
     )
 
-    (; === peak at individual fields ===
+    (; === peek at individual fields ===
        ======================== ;)
 
     (; the comment's content ;)
