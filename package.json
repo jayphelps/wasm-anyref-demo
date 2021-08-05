@@ -11,5 +11,8 @@
   "devDependencies": {
     "nodemon": "^1.19.1",
     "wabt": "^1.0.11"
+  },
+  "volta": {
+    "node": "12.22.4"
   }
 }
